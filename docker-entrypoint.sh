@@ -29,6 +29,12 @@ process_templates() {
         fi
     done
     
+    # Проверяем наличие settings.json и создаем его из шаблона, если необходимо
+    if [ ! -f "${XTEVE_HOME}/settings.json" ] && [ -f "${XTEVE_HOME}/settings.json.template" ]; then
+        log "Creating settings.json from template..."
+        cp "${XTEVE_HOME}/settings.json.template" "${XTEVE_HOME}/settings.json"
+    fi
+    
     # Дополнительная обработка для файлов конфигурации, которые могут содержать {XTEVE_*}
     # но не имеют расширения .template
     if [ -f "${XTEVE_HOME}/settings.json" ]; then

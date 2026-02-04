@@ -16,20 +16,29 @@
   "ffmpeg.path": "",
   "vlc.options": "",
   "vlc.path": "",
+  "files": {
+    "hdhr": {},
+    "m3u": {},
+    "xmltv": {}
+  },
   "files.update": true,
+  "filter": {},
   "git.branch": "master",
   "language": "en",
   "log.entries.ram": 500,
   "m3u8.adaptive.bandwidth.mbps": 10,
-  "mapping.first.channel": 1,
+  "mapping.first.channel": 1000,
   "port": "{XTEVE_PORT}",
   "ssdp": true,
   "temp.path": "{XTEVE_TEMP}",
-  "tuner": 2,
-  "update.url": "",
-  "user.agent": "",
+  "tuner": 1,
+  "update": [
+    "0000"
+  ],
+  "user.agent": "xteve",
   "uuid": "",
   "udpxy": "",
+  "version": "2.1.0",
   "xepg.replace.missing.images": true,
-  "xteveAutoUpdate": false
+  "xteveAutoUpdate": true
 }
