@@ -1,0 +1,26 @@
+services:
+  xteve:
+    image: ghcr.io/ekzoman/xteve:latest
+    restart: always
+    environment:
+      - TZ=Europe/Moscow
+      - XTEVE_PORT=34400
+      - XTEVE_HOME=/home/xteve
+    ports:
+      - 34400:34400
+    networks:
+      - nginxpm_default
+    volumes:
+      - xteve_data:/config
+      - /etc/localtime:/etc/localtime:ro
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:${XTEVE_PORT:-34400}/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+networks:
+  nginxpm_default:
+    external: true
+volumes:
+  xteve_data:
