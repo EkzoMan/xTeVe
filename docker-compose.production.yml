@@ -9,7 +9,7 @@ services:
     ports:
       - 34400:34400
     networks:
-      - nginxpm_default
+      - xteve-network
     volumes:
       - xteve_data:/config
       - /etc/localtime:/etc/localtime:ro
@@ -20,7 +20,7 @@ services:
       retries: 3
       start_period: 40s
 networks:
-  nginxpm_default:
-    external: true
+  xteve-network:
+    driver: bridge
 volumes:
   xteve_data:
